@@ -49,9 +49,11 @@ public class Rocket : MonoBehaviour {
 
     private void Thrust()
     {
+        float addThrust = mainThrust * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.W)) // Can thrust while rotating
         {
-            rigidBody.AddRelativeForce(Vector3.up * mainThrust);
+            rigidBody.AddRelativeForce(Vector3.up * addThrust);
             if (audioSource.isPlaying == false) // So audio doesn't play every frame
             {
                 audioSource.Play();
