@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//TODO Fix lighting bug
 
 public class Rocket : MonoBehaviour {
 
@@ -10,6 +10,9 @@ public class Rocket : MonoBehaviour {
 
     Rigidbody rigidBody; // Naming of Rigidbody
     AudioSource audioSource; // Naming of Audiosource
+
+    enum State { Alive, Dying, Transcending }
+    State state = State.Alive;
     
 
 	// Use this for initialization
@@ -22,39 +25,59 @@ public class Rocket : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Thrust();
-        Rotate();
+        // Somewhere stop sound on death
+        if (state == State.Alive)
+        {
+            Thrust();
+            Rotate();
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        if (state != State.Alive) { return; } // Ignore collisions when dead
+
         switch (collision.gameObject.tag)
         {
             case "Friendly":
-                print("OK"); //TODO remove/add working code
+                //Do Nothing
                 break;
-
-            case "Fuel":
-                print("Fuel");//TODO remove/add working code
+            case "Finish":
+                state = State.Transcending;
+                Invoke("LoadNextLevel", 1f); // Parameterise time
                 break;
             default:
-                print("Dead");//TODO remove/add working code
-                //Kill player/reload level
+                print("Hit Something Deadly");
+                state = State.Dying;
+                Invoke( "LoadFirstLevel", 3f); // Parameterise time
                 break;
-                
+
 
 
         }
+    }
+
+   
+
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(1); // Allow for more 2 levels
+    }
+
+    private void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void Thrust()
     {
         float addThrust = mainThrust * Time.deltaTime;
 
+
         if (Input.GetKey(KeyCode.W)) // Can thrust while rotating
         {
             rigidBody.AddRelativeForce(Vector3.up * addThrust);
-            if (audioSource.isPlaying == false) // So audio doesn't play every frame
+            if (!audioSource.isPlaying) // So audio doesn't play every frame
             {
                 audioSource.Play();
             }
