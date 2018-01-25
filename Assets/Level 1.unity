@@ -728,21 +728,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114973647184527986, guid: c7ef3e8177f97a84c9c30a624c7ab90e,
-        type: 2}
-      propertyPath: mainThrust
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 54296920861613518, guid: c7ef3e8177f97a84c9c30a624c7ab90e,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114973647184527986, guid: c7ef3e8177f97a84c9c30a624c7ab90e,
-        type: 2}
-      propertyPath: rcsThrust
-      value: 180
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7ef3e8177f97a84c9c30a624c7ab90e, type: 2}
   m_IsPrefabParent: 0
