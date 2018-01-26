@@ -33,13 +33,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1077947085563074}
-  m_LocalRotation: {x: 0.43473813, y: -0.31457567, z: -0.05094014, w: 0.84228855}
-  m_LocalPosition: {x: 55.61, y: 29, z: 0}
+  m_LocalRotation: {x: 0.26044843, y: -0.95128065, z: 0.14333591, w: -0.08177193}
+  m_LocalPosition: {x: -8.23, y: 27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 44.451, y: -53.552002, z: -30.223001}
+  m_LocalEulerAnglesHint: {x: 13.304001, y: -193.685, z: -32.227}
 --- !u!108 &108274739805140900
 Light:
   m_ObjectHideFlags: 1
@@ -49,7 +49,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.6735772, g: 0.56228375, b: 0.9558824, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -60,8 +60,8 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NormalBias: 0.04
+    m_NearPlane: 0.1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
